@@ -38,9 +38,21 @@ Partial Class frmClientDetailInput
         Me.chkProgressiveLens = New System.Windows.Forms.CheckBox()
         Me.chkPhotosensitiveLens = New System.Windows.Forms.CheckBox()
         Me.chkRolledLensEdges = New System.Windows.Forms.CheckBox()
+        Me.grpContactsOptions = New System.Windows.Forms.GroupBox()
+        Me.grpContactsWearType = New System.Windows.Forms.GroupBox()
+        Me.rdoDailyWear = New System.Windows.Forms.RadioButton()
+        Me.rdoExtendedWear = New System.Windows.Forms.RadioButton()
+        Me.rdoGasPerm = New System.Windows.Forms.RadioButton()
+        Me.chkReplacementInsurance = New System.Windows.Forms.CheckBox()
+        Me.chkCleaningSupplies = New System.Windows.Forms.CheckBox()
+        Me.chkColoredLens = New System.Windows.Forms.CheckBox()
+        Me.lstColoredLensType = New System.Windows.Forms.ListBox()
+        Me.btnProceedToReceiptScreen = New System.Windows.Forms.Button()
         Me.grpServicesContainer.SuspendLayout()
         Me.grpGlassesOptions.SuspendLayout()
         Me.grpLensType.SuspendLayout()
+        Me.grpContactsOptions.SuspendLayout()
+        Me.grpContactsWearType.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblClientName
@@ -210,11 +222,120 @@ Partial Class frmClientDetailInput
         Me.chkRolledLensEdges.Text = "Rolled Lens Edges"
         Me.chkRolledLensEdges.UseVisualStyleBackColor = True
         '
+        'grpContactsOptions
+        '
+        Me.grpContactsOptions.Controls.Add(Me.lstColoredLensType)
+        Me.grpContactsOptions.Controls.Add(Me.chkColoredLens)
+        Me.grpContactsOptions.Controls.Add(Me.chkCleaningSupplies)
+        Me.grpContactsOptions.Controls.Add(Me.chkReplacementInsurance)
+        Me.grpContactsOptions.Controls.Add(Me.grpContactsWearType)
+        Me.grpContactsOptions.Location = New System.Drawing.Point(21, 336)
+        Me.grpContactsOptions.Name = "grpContactsOptions"
+        Me.grpContactsOptions.Size = New System.Drawing.Size(466, 194)
+        Me.grpContactsOptions.TabIndex = 4
+        Me.grpContactsOptions.TabStop = False
+        Me.grpContactsOptions.Text = "Contacts Options"
+        Me.grpContactsOptions.Visible = False
+        '
+        'grpContactsWearType
+        '
+        Me.grpContactsWearType.Controls.Add(Me.rdoGasPerm)
+        Me.grpContactsWearType.Controls.Add(Me.rdoExtendedWear)
+        Me.grpContactsWearType.Controls.Add(Me.rdoDailyWear)
+        Me.grpContactsWearType.Location = New System.Drawing.Point(7, 20)
+        Me.grpContactsWearType.Name = "grpContactsWearType"
+        Me.grpContactsWearType.Size = New System.Drawing.Size(452, 43)
+        Me.grpContactsWearType.TabIndex = 0
+        Me.grpContactsWearType.TabStop = False
+        '
+        'rdoDailyWear
+        '
+        Me.rdoDailyWear.AutoSize = True
+        Me.rdoDailyWear.Location = New System.Drawing.Point(19, 16)
+        Me.rdoDailyWear.Name = "rdoDailyWear"
+        Me.rdoDailyWear.Size = New System.Drawing.Size(77, 17)
+        Me.rdoDailyWear.TabIndex = 0
+        Me.rdoDailyWear.TabStop = True
+        Me.rdoDailyWear.Text = "Daily Wear"
+        Me.rdoDailyWear.UseVisualStyleBackColor = True
+        '
+        'rdoExtendedWear
+        '
+        Me.rdoExtendedWear.AutoSize = True
+        Me.rdoExtendedWear.Location = New System.Drawing.Point(169, 16)
+        Me.rdoExtendedWear.Name = "rdoExtendedWear"
+        Me.rdoExtendedWear.Size = New System.Drawing.Size(99, 17)
+        Me.rdoExtendedWear.TabIndex = 1
+        Me.rdoExtendedWear.TabStop = True
+        Me.rdoExtendedWear.Text = "Extended Wear"
+        Me.rdoExtendedWear.UseVisualStyleBackColor = True
+        '
+        'rdoGasPerm
+        '
+        Me.rdoGasPerm.AutoSize = True
+        Me.rdoGasPerm.Location = New System.Drawing.Point(329, 16)
+        Me.rdoGasPerm.Name = "rdoGasPerm"
+        Me.rdoGasPerm.Size = New System.Drawing.Size(97, 17)
+        Me.rdoGasPerm.TabIndex = 2
+        Me.rdoGasPerm.TabStop = True
+        Me.rdoGasPerm.Text = "Gas Permeable"
+        Me.rdoGasPerm.UseVisualStyleBackColor = True
+        '
+        'chkReplacementInsurance
+        '
+        Me.chkReplacementInsurance.AutoSize = True
+        Me.chkReplacementInsurance.Location = New System.Drawing.Point(7, 90)
+        Me.chkReplacementInsurance.Name = "chkReplacementInsurance"
+        Me.chkReplacementInsurance.Size = New System.Drawing.Size(139, 17)
+        Me.chkReplacementInsurance.TabIndex = 1
+        Me.chkReplacementInsurance.Text = "Replacement Insurance"
+        Me.chkReplacementInsurance.UseVisualStyleBackColor = True
+        '
+        'chkCleaningSupplies
+        '
+        Me.chkCleaningSupplies.AutoSize = True
+        Me.chkCleaningSupplies.Location = New System.Drawing.Point(7, 125)
+        Me.chkCleaningSupplies.Name = "chkCleaningSupplies"
+        Me.chkCleaningSupplies.Size = New System.Drawing.Size(173, 17)
+        Me.chkCleaningSupplies.TabIndex = 2
+        Me.chkCleaningSupplies.Text = "Cleaning Supplies for One Year"
+        Me.chkCleaningSupplies.UseVisualStyleBackColor = True
+        '
+        'chkColoredLens
+        '
+        Me.chkColoredLens.AutoSize = True
+        Me.chkColoredLens.Location = New System.Drawing.Point(6, 161)
+        Me.chkColoredLens.Name = "chkColoredLens"
+        Me.chkColoredLens.Size = New System.Drawing.Size(88, 17)
+        Me.chkColoredLens.TabIndex = 3
+        Me.chkColoredLens.Text = "Colored Lens"
+        Me.chkColoredLens.UseVisualStyleBackColor = True
+        '
+        'lstColoredLensType
+        '
+        Me.lstColoredLensType.FormattingEnabled = True
+        Me.lstColoredLensType.Location = New System.Drawing.Point(211, 153)
+        Me.lstColoredLensType.Name = "lstColoredLensType"
+        Me.lstColoredLensType.Size = New System.Drawing.Size(146, 30)
+        Me.lstColoredLensType.TabIndex = 4
+        Me.lstColoredLensType.Visible = False
+        '
+        'btnProceedToReceiptScreen
+        '
+        Me.btnProceedToReceiptScreen.Location = New System.Drawing.Point(21, 547)
+        Me.btnProceedToReceiptScreen.Name = "btnProceedToReceiptScreen"
+        Me.btnProceedToReceiptScreen.Size = New System.Drawing.Size(474, 65)
+        Me.btnProceedToReceiptScreen.TabIndex = 5
+        Me.btnProceedToReceiptScreen.Text = "Proceed to Receipt Screen"
+        Me.btnProceedToReceiptScreen.UseVisualStyleBackColor = True
+        '
         'frmClientDetailInput
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(507, 793)
+        Me.ClientSize = New System.Drawing.Size(507, 624)
+        Me.Controls.Add(Me.btnProceedToReceiptScreen)
+        Me.Controls.Add(Me.grpContactsOptions)
         Me.Controls.Add(Me.grpGlassesOptions)
         Me.Controls.Add(Me.grpServicesContainer)
         Me.Controls.Add(Me.txtClientName)
@@ -227,6 +348,10 @@ Partial Class frmClientDetailInput
         Me.grpGlassesOptions.PerformLayout()
         Me.grpLensType.ResumeLayout(False)
         Me.grpLensType.PerformLayout()
+        Me.grpContactsOptions.ResumeLayout(False)
+        Me.grpContactsOptions.PerformLayout()
+        Me.grpContactsWearType.ResumeLayout(False)
+        Me.grpContactsWearType.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -248,4 +373,14 @@ Partial Class frmClientDetailInput
     Friend WithEvents chkCompHdLenses As CheckBox
     Friend WithEvents chkTintedLenses As CheckBox
     Friend WithEvents chkAntiScratch As CheckBox
+    Friend WithEvents grpContactsOptions As GroupBox
+    Friend WithEvents grpContactsWearType As GroupBox
+    Friend WithEvents rdoGasPerm As RadioButton
+    Friend WithEvents rdoExtendedWear As RadioButton
+    Friend WithEvents rdoDailyWear As RadioButton
+    Friend WithEvents lstColoredLensType As ListBox
+    Friend WithEvents chkColoredLens As CheckBox
+    Friend WithEvents chkCleaningSupplies As CheckBox
+    Friend WithEvents chkReplacementInsurance As CheckBox
+    Friend WithEvents btnProceedToReceiptScreen As Button
 End Class
