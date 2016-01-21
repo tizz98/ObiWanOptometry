@@ -116,6 +116,7 @@ Partial Class frmClientDetailInput
         Me.grpGlassesOptions.TabIndex = 3
         Me.grpGlassesOptions.TabStop = False
         Me.grpGlassesOptions.Text = "Glasses Options"
+        Me.grpGlassesOptions.Visible = False
         '
         'grpLensType
         '
