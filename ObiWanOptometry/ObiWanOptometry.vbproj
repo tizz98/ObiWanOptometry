@@ -82,6 +82,12 @@
       <DependentUpon>frmClientDetailInput.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmClientReceipt.Designer.vb">
+      <DependentUpon>frmClientReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Glasses.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -340,6 +340,9 @@ Partial Class frmClientDetailInput
         Me.Controls.Add(Me.grpServicesContainer)
         Me.Controls.Add(Me.txtClientName)
         Me.Controls.Add(Me.lblClientName)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(523, 662)
+        Me.MinimumSize = New System.Drawing.Size(523, 662)
         Me.Name = "frmClientDetailInput"
         Me.Text = "Form1"
         Me.grpServicesContainer.ResumeLayout(False)
