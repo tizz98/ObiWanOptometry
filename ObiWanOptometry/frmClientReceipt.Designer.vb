@@ -22,27 +22,27 @@ Partial Class frmClientReceipt
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtReceiptData = New System.Windows.Forms.TextBox()
         Me.btnGoBackToBilling = New System.Windows.Forms.Button()
         Me.btnProcessOrder = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtReceiptData
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(4, 3)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(502, 474)
-        Me.TextBox1.TabIndex = 0
+        Me.txtReceiptData.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReceiptData.Location = New System.Drawing.Point(4, 3)
+        Me.txtReceiptData.Multiline = True
+        Me.txtReceiptData.Name = "txtReceiptData"
+        Me.txtReceiptData.ReadOnly = True
+        Me.txtReceiptData.Size = New System.Drawing.Size(532, 474)
+        Me.txtReceiptData.TabIndex = 0
         '
         'btnGoBackToBilling
         '
         Me.btnGoBackToBilling.Location = New System.Drawing.Point(13, 484)
         Me.btnGoBackToBilling.Name = "btnGoBackToBilling"
-        Me.btnGoBackToBilling.Size = New System.Drawing.Size(482, 45)
+        Me.btnGoBackToBilling.Size = New System.Drawing.Size(515, 45)
         Me.btnGoBackToBilling.TabIndex = 1
         Me.btnGoBackToBilling.Text = "Go Back to Billing Screen"
         Me.btnGoBackToBilling.UseVisualStyleBackColor = True
@@ -51,7 +51,7 @@ Partial Class frmClientReceipt
         '
         Me.btnProcessOrder.Location = New System.Drawing.Point(12, 535)
         Me.btnProcessOrder.Name = "btnProcessOrder"
-        Me.btnProcessOrder.Size = New System.Drawing.Size(482, 45)
+        Me.btnProcessOrder.Size = New System.Drawing.Size(516, 45)
         Me.btnProcessOrder.TabIndex = 2
         Me.btnProcessOrder.Text = "Process Order"
         Me.btnProcessOrder.UseVisualStyleBackColor = True
@@ -60,7 +60,7 @@ Partial Class frmClientReceipt
         '
         Me.btnExit.Location = New System.Drawing.Point(12, 586)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(482, 45)
+        Me.btnExit.Size = New System.Drawing.Size(516, 45)
         Me.btnExit.TabIndex = 3
         Me.btnExit.Text = "Exit System"
         Me.btnExit.UseVisualStyleBackColor = True
@@ -69,14 +69,14 @@ Partial Class frmClientReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(507, 640)
+        Me.ClientSize = New System.Drawing.Size(540, 640)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnProcessOrder)
         Me.Controls.Add(Me.btnGoBackToBilling)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtReceiptData)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(523, 678)
-        Me.MinimumSize = New System.Drawing.Size(523, 678)
+        Me.MaximumSize = New System.Drawing.Size(556, 678)
+        Me.MinimumSize = New System.Drawing.Size(556, 678)
         Me.Name = "frmClientReceipt"
         Me.Text = "frmClientReceipt"
         Me.ResumeLayout(False)
@@ -84,7 +84,7 @@ Partial Class frmClientReceipt
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtReceiptData As TextBox
     Friend WithEvents btnGoBackToBilling As Button
     Friend WithEvents btnProcessOrder As Button
     Friend WithEvents btnExit As Button

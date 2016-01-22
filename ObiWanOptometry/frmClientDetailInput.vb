@@ -34,28 +34,6 @@ Public Class frmClientDetailInput
     Private Sub frmClientDetailInput_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lstColoredLensType.DataSource = Contacts.COLOR_LIST
         Me.Text = TITLE
-
-        ' ############### DEBUG STUFF ####################
-        Dim c As New Contacts
-        c.wear = Contacts.contactWearType.ExtendedWear
-        c.hasColoredLens = True
-        c.lensColor = Contacts.contactLensColorType.R2D2_Blue
-        c.hasReplacementInsurance = True
-
-        Dim g As New Glasses
-        g.hasCompHdLens = True
-        g.hasPhotosensitiveLens = True
-        g.lensMaterial = Glasses.lensMaterialType.Glass
-
-        Dim myClient As New Client
-        myClient.contacts = c
-        myClient.glasses = g
-        myClient.hasContacts = True
-        myClient.hasGlasses = True
-        myClient.name = "Darth Vader"
-        myClient.hasEyeExam = True
-
-        Debug.WriteLine(myClient.getReceiptOutput())
     End Sub
 
     Private Sub frmClientDetailInput_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -64,8 +42,14 @@ Public Class frmClientDetailInput
     End Sub
 
     Private Sub btnProceedToReceiptScreen_Click(sender As Object, e As EventArgs) Handles btnProceedToReceiptScreen.Click
-        Me.Hide()
-        frmClientReceipt.Show()
+        getDataFromFields()
+
+        If myClient.validate() Then
+            Me.Hide()
+
+            frmClientReceipt.txtReceiptData.Text = myClient.getReceiptOutput()
+            frmClientReceipt.Show()
+        End If
     End Sub
 
     Public Sub resetData()
@@ -73,6 +57,8 @@ Public Class frmClientDetailInput
         resetServices()
         resetGlassesOptions()
         resetContactsOptions()
+
+        myClient = New Client
     End Sub
 
     Private Sub resetName()
@@ -86,7 +72,7 @@ Public Class frmClientDetailInput
     End Sub
 
     Private Sub resetGlassesOptions()
-        rdoPlasticLens.Checked = False
+        rdoPlasticLens.Checked = True
         rdoGlassLens.Checked = False
 
         chkAntiScratch.Checked = False
@@ -99,7 +85,7 @@ Public Class frmClientDetailInput
     End Sub
 
     Private Sub resetContactsOptions()
-        rdoDailyWear.Checked = False
+        rdoDailyWear.Checked = True
         rdoExtendedWear.Checked = False
         rdoGasPerm.Checked = False
 
@@ -108,5 +94,60 @@ Public Class frmClientDetailInput
         chkColoredLens.Checked = False
 
         lstColoredLensType.SelectedIndex = 0
+    End Sub
+
+    Private Sub getDataFromFields()
+        myClient.name = txtClientName.Text
+        myClient.hasEyeExam = chkEyeExam.Checked
+        myClient.hasGlasses = chkGlasses.Checked
+        myClient.hasContacts = chkContacts.Checked
+
+        If myClient.hasGlasses Then
+            getGlassesDataFromFields()
+        End If
+
+        If myClient.hasContacts Then
+            getContactsDataFromFields()
+        End If
+    End Sub
+
+    Private Sub getGlassesDataFromFields()
+        myClient.glasses = New Glasses
+
+        If rdoPlasticLens.Checked Then
+            myClient.glasses.lensMaterial = Glasses.lensMaterialType.Plastic
+        ElseIf rdoGlassLens.Checked Then
+            myClient.glasses.lensMaterial = Glasses.lensMaterialType.Glass
+        End If
+
+        myClient.glasses.hasAntiScratch = chkAntiScratch.Checked
+        myClient.glasses.hasTintedLens = chkTintedLenses.Checked
+        myClient.glasses.hasCompHdLens = chkCompHdLenses.Checked
+
+        myClient.glasses.hasRolledLensEdges = chkRolledLensEdges.Checked
+        myClient.glasses.hasPhotosensitiveLens = chkRolledLensEdges.Checked
+        myClient.glasses.hasProgressiveLens = chkProgressiveLens.Checked
+    End Sub
+
+    Private Sub getContactsDataFromFields()
+        myClient.contacts = New Contacts
+
+        If rdoDailyWear.Checked Then
+            myClient.contacts.wear = Contacts.contactWearType.DailyWear
+        ElseIf rdoExtendedWear.Checked Then
+            myClient.contacts.wear = Contacts.contactWearType.ExtendedWear
+        ElseIf rdoGasPerm.Checked Then
+            myClient.contacts.wear = Contacts.contactWearType.GasPermeable
+        End If
+
+        myClient.contacts.hasReplacementInsurance = chkReplacementInsurance.Checked
+        myClient.contacts.hasCleaningSupplies = chkCleaningSupplies.Checked
+        myClient.contacts.hasColoredLens = chkColoredLens.Checked
+
+        If myClient.contacts.hasColoredLens Then
+            Dim lensString = Contacts.COLOR_LIST.Item(Contacts.COLOR_LIST.IndexOf(lstColoredLensType.SelectedItem))
+
+            myClient.contacts.lensColor = myClient.contacts.getLensColorTypeFromString(lensString)
+        End If
     End Sub
 End Class

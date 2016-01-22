@@ -44,7 +44,13 @@
     End Function
 
     Private Function validateLensMaterial() As Boolean
-        Return lensMaterialType.IsDefined(GetType(lensMaterialType), Me.lensMaterial)
+        Dim isValid As Boolean = lensMaterialType.IsDefined(GetType(lensMaterialType), Me.lensMaterial)
+
+        If Not isValid Then
+            MessageBox.Show("Please choose a valid Lens/Frame option.")
+        End If
+
+        Return isValid
     End Function
 
     Public Function getSubtotal() As Decimal Implements ReceiptItem.getSubtotal

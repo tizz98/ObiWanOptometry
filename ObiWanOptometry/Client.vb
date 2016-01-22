@@ -16,8 +16,6 @@ Public Class Client
 
     Private Const CLIENT_NAME_FORMAT_STR As String = "Client: {0}"
 
-    Public dblVbCrLf As String = Strings.StrDup(2, vbCrLf)
-
     ' Overrides ReceiptFormatter verboseName
     Protected Overrides Property verboseName As String = "Client"
 
@@ -26,7 +24,7 @@ Public Class Client
     Private Const RECEIPT_TOTAL_STR As String = "Total"
     Private Const SALES_TAX_AMOUNT As Decimal = 0.06  ' 6% sales tax
 
-    Private Function validate() As Boolean Implements ReceiptItem.validate
+    Public Function validate() As Boolean Implements ReceiptItem.validate
         Return validateGlasses() And validateContacts()
     End Function
 
@@ -34,7 +32,7 @@ Public Class Client
         Dim isValid As Boolean = False
 
         If hasGlasses Then
-            Me.glasses.validate()
+            isValid = Me.glasses.validate()
         Else
             isValid = True
         End If
@@ -46,7 +44,7 @@ Public Class Client
         Dim isValid As Boolean = False
 
         If hasContacts Then
-            Me.contacts.validate()
+            isValid = Me.contacts.validate()
         Else
             isValid = True
         End If
@@ -93,10 +91,10 @@ Public Class Client
     End Function
 
     Public Function getReceiptOutput() As String Implements ReceiptItem.getReceiptOutput
-        Dim returnString As String = String.Format(CLIENT_NAME_FORMAT_STR, name) & dblVbCrLf
+        Dim returnString As String = String.Format(CLIENT_NAME_FORMAT_STR, name) & vbCrLf & vbCrLf
 
         If hasEyeExam Then
-            returnString &= getMainItemWithCostLineFormatted(EYE_EXAM_STR, EYE_EXAM_COST) & dblVbCrLf
+            returnString &= getMainItemWithCostLineFormatted(EYE_EXAM_STR, EYE_EXAM_COST) & vbCrLf & vbCrLf
         End If
 
         If hasGlasses Then

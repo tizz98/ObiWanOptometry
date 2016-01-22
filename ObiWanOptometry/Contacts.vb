@@ -173,4 +173,19 @@
                 Return 0.0
         End Select
     End Function
+
+    Public Function getLensColorTypeFromString(lensColor As String) As contactLensColorType
+        Select Case lensColor
+            Case DARTHMAUL_RED_STR
+                Return contactLensColorType.DarthMaul_Red
+            Case R2D2_BLUE_STR
+                Return contactLensColorType.R2D2_Blue
+            Case C3P0_GOLD_STR
+                Return contactLensColorType.C3P0_Gold
+            Case YODA_GREEN_STR
+                Return contactLensColorType.Yoda_Green
+            Case Else
+                Return Nothing
+        End Select
+    End Function
 End Class
