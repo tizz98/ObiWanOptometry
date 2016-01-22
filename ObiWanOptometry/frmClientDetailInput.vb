@@ -5,7 +5,7 @@ Public Class frmClientDetailInput
     Public Const BASE_TITLE As String = "Obi-Wan Optometry"
     Public Const TITLE_FORMAT_STR As String = "{0} -- {1}"
     Private Const SUB_TITLE_STR As String = "Eye Care for Generations of Jedi"
-    Private TITLE = String.Format(TITLE_FORMAT_STR, BASE_TITLE, SUB_TITLE_STR)
+    Private TITLE As String = String.Format(TITLE_FORMAT_STR, BASE_TITLE, SUB_TITLE_STR)
 
     Private Sub chkGlasses_CheckedChanged(sender As Object, e As EventArgs) Handles chkGlasses.CheckedChanged
         ' TODO: clear fields when unchecking....
@@ -52,5 +52,10 @@ Public Class frmClientDetailInput
     Private Sub frmClientDetailInput_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         MessageBox.Show("You can only close the application from the receipt screen!")
         e.Cancel = True
+    End Sub
+
+    Private Sub btnProceedToReceiptScreen_Click(sender As Object, e As EventArgs) Handles btnProceedToReceiptScreen.Click
+        Me.Hide()
+        frmClientReceipt.ShowDialog()
     End Sub
 End Class
