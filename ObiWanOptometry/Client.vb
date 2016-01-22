@@ -91,7 +91,7 @@ Public Class Client
     End Function
 
     Public Function getReceiptOutput() As String Implements ReceiptItem.getReceiptOutput
-        Dim returnString As String = String.Format(CLIENT_NAME_FORMAT_STR, name) & vbCrLf & vbCrLf
+        Dim returnString As String = getReceiptHeader(frmClientDetailInput.BASE_TITLE) & String.Format(CLIENT_NAME_FORMAT_STR, name) & vbCrLf & vbCrLf
 
         If hasEyeExam Then
             returnString &= getMainItemWithCostLineFormatted(EYE_EXAM_STR, EYE_EXAM_COST) & vbCrLf & vbCrLf

@@ -34,4 +34,14 @@
     Protected Function getDividerLine() As String
         Return getMainItemTabSpaces() & Strings.StrDup(LINEITEM_LINE_LENGTH, "-")
     End Function
+
+    Public Function getReceiptHeader(title As String) As String
+        Dim returnString As String = getDividerLine() & vbCrLf
+
+        returnString &= String.Format("{0,-" & CStr(LINEITEM_LINE_LENGTH) & "}",
+                                      String.Format("{0," & (Math.Ceiling((LINEITEM_LINE_LENGTH + title.Length) / 2)).ToString() & "}", title)) & vbCrLf
+        returnString &= getDividerLine() & vbCrLf & vbCrLf
+
+        Return returnString
+    End Function
 End Class
