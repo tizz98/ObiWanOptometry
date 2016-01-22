@@ -1,4 +1,15 @@
-﻿Public Class Contacts
+﻿'------------------------------------------------------------
+'-                  File Name: Contacts.vb                  -
+'-                 Part of Project: Assign2                 -
+'------------------------------------------------------------
+'-                Written By: Elijah Wilson                 -
+'-                  Written On: 01/22/2016                  -
+'------------------------------------------------------------
+'- File Purpose:                                            -
+'-                                                          -
+'- This file contains the Client class.                     -
+'------------------------------------------------------------
+Public Class Contacts
     Inherits ReceiptFormatter
     Implements ReceiptItem
 
@@ -47,10 +58,52 @@
         Yoda_Green
     End Enum
 
+    '------------------------------------------------------------
+    '-                 Function Name: validate                  -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns whether or not the contacts object -
+    '- is valid.                                                -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Boolean - Whether or not the contacts object is valid.   -
+    '------------------------------------------------------------
     Public Function validate() As Boolean Implements ReceiptItem.validate
         Return validateWear() And validateLensColor()
     End Function
 
+    '------------------------------------------------------------
+    '-               Function Name: validateWear                -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns whether or not the selected wear   -
+    '- choice is valid.                                         -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- isValid - Holds whether or not the wear choice is valid  -
+    '-           and is eventually returned.                    -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Boolean - Whether or not the selected wear choice is     -
+    '-           valid                                          -
+    '------------------------------------------------------------
     Private Function validateWear() As Boolean
         Dim isValid As Boolean = contactWearType.IsDefined(GetType(contactWearType), Me.wear)
 
@@ -61,6 +114,28 @@
         Return isValid
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: validateLensColor             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns whether or not the selected lens   -
+    '- color choice is valid.                                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- isValid - Holds whether or not the lens color choice is  -
+    '-           valid and is eventually returned               -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Boolean - Whether or not the selected lens color choice  -
+    '-           is valid                                       -
+    '------------------------------------------------------------
     Private Function validateLensColor() As Boolean
         Dim isValid As Boolean = False
 
@@ -77,6 +152,28 @@
         Return isValid
     End Function
 
+    '------------------------------------------------------------
+    '-                Function Name: getSubtotal                -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns the subtotal of the contacts based -
+    '- on what options are selected.                            -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- subtotal - Accruing subtotal based on which options are  -
+    '-            selected for the contacts                     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Decimal - Subtotal of the contacts with the options      -
+    '-           selected                                       -
+    '------------------------------------------------------------
     Public Function getSubtotal() As Decimal Implements ReceiptItem.getSubtotal
         Dim subtotal As Decimal = 0.0
 
@@ -97,6 +194,27 @@
         Return subtotal
     End Function
 
+    '------------------------------------------------------------
+    '-             Function Name: getReceiptOutput              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a string that will be used and     -
+    '- displayed on the receipt for contacts.                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- returnString - The string to be returned based on what   -
+    '-                options for the contacts are selected     -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - What will be used and displayed on the receipt  -
+    '------------------------------------------------------------
     Public Function getReceiptOutput() As String Implements ReceiptItem.getReceiptOutput
         Dim returnString As String = Me.getOrderHeaderLine() & vbCrLf & getWearReceiptLine() & vbCrLf
 
@@ -117,22 +235,126 @@
         Return returnString
     End Function
 
+    '------------------------------------------------------------
+    '-            Function Name: getWearReceiptLine             -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a sub item line formatted based on -
+    '- the wear selected and the cost of the wear.              -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Contact wear information to be used on the      -
+    '-          receipt                                         -
+    '------------------------------------------------------------
     Private Function getWearReceiptLine() As String
         Return getSubItemLineFormatted(getReadableWear(), getWearCost())
     End Function
 
+    '------------------------------------------------------------
+    '-         Function Name: getColoredLensReceiptLine         -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a sub item line formatted based on -
+    '- the lens color selected and the cost of the lens color.  -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Contact lens color information to be used on    -
+    '-          the receipt                                     -
+    '------------------------------------------------------------
     Private Function getColoredLensReceiptLine() As String
         Return getSubItemLineFormatted(String.Format("{0} ({1})", COLORED_LENS_STR, getReadableLensColor()), COLORED_LENS_COST)
     End Function
 
+    '------------------------------------------------------------
+    '-    Function Name: getReplacementInsuranceReceiptLine     -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a sub item line formatted based on -
+    '- the cost of replacement insurance.                       -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Contact replacement insurance information to be -
+    '-          used on the receipt                             -
+    '------------------------------------------------------------
     Private Function getReplacementInsuranceReceiptLine() As String
         Return getSubItemLineFormatted(REPLACEMENT_INSURANCE_STR, REPLACEMENT_INSURANCE_COST)
     End Function
 
+    '------------------------------------------------------------
+    '-      Function Name: getCleaningSuppliesReceiptLine       -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a sub item line formatted based on -
+    '- the cost of cleaning supplies.                           -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - Contact cleaning supplies information to be     -
+    '-          used on the receipt                             -
+    '------------------------------------------------------------
     Private Function getCleaningSuppliesReceiptLine() As String
         Return getSubItemLineFormatted(CLEANING_SUPPLIES_STR, CLEANING_SUPPLIES_COST)
     End Function
 
+    '------------------------------------------------------------
+    '-           Function Name: getReadableLensColor            -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a readable string based on the     -
+    '- lens color selected.                                     -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - A readable string based on the lens color       -
+    '------------------------------------------------------------
     Public Function getReadableLensColor() As String
         Select Case Me.lensColor
             Case contactLensColorType.C3P0_Gold
@@ -148,6 +370,26 @@
         End Select
     End Function
 
+    '------------------------------------------------------------
+    '-              Function Name: getReadableWear              -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns a readable string based on the     -
+    '- wear selected.                                           -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- String - A readable string based on the wear type        -
+    '------------------------------------------------------------
     Public Function getReadableWear() As String
         Select Case Me.wear
             Case contactWearType.DailyWear
@@ -161,6 +403,27 @@
         End Select
     End Function
 
+    '------------------------------------------------------------
+    '-                Function Name: getWearCost                -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns the cost of the wear based on      -
+    '- which wear is selected                                   -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- Decimal - The cost of the wear based on which wear is    -
+    '-           selected                                       -
+    '------------------------------------------------------------
     Public Function getWearCost() As Decimal
         Select Case Me.wear
             Case contactWearType.DailyWear
@@ -174,6 +437,27 @@
         End Select
     End Function
 
+    '------------------------------------------------------------
+    '-        Function Name: getLensColorTypeFromString         -
+    '------------------------------------------------------------
+    '-                Written By: Elijah Wilson                 -
+    '-                  Written On: 01/22/2016                  -
+    '------------------------------------------------------------
+    '- Function Purpose:                                        -
+    '-                                                          -
+    '- This function returns the contactLensType based on the   -
+    '- string passed into the function.                         -
+    '------------------------------------------------------------
+    '- Parameter Dictionary (in parameter order):               -
+    '- lensColor - The lens color being queried                 -
+    '------------------------------------------------------------
+    '- Local Variable Dictionary (alphabetically):              -
+    '- (None)                                                   -
+    '------------------------------------------------------------
+    '- Returns:                                                 -
+    '- contactLensColorType - The contactLensColorType based on -
+    '-                        the lensColor input               -
+    '------------------------------------------------------------
     Public Function getLensColorTypeFromString(lensColor As String) As contactLensColorType
         Select Case lensColor
             Case DARTHMAUL_RED_STR
