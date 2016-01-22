@@ -1,4 +1,6 @@
-﻿Public Class frmClientDetailInput
+﻿Imports System.ComponentModel
+
+Public Class frmClientDetailInput
     Public myClient As New Client
     Public Const BASE_TITLE As String = "Obi-Wan Optometry"
     Public Const TITLE_FORMAT_STR As String = "{0} -- {1}"
@@ -45,5 +47,10 @@
         myClient.hasEyeExam = True
 
         Debug.WriteLine(myClient.getReceiptOutput())
+    End Sub
+
+    Private Sub frmClientDetailInput_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        MessageBox.Show("You can only close the application from the receipt screen!")
+        e.Cancel = True
     End Sub
 End Class
