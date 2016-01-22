@@ -26,7 +26,6 @@ Public Class frmClientReceipt
 
     Private Sub btnGoBackToBilling_Click(sender As Object, e As EventArgs) Handles btnGoBackToBilling.Click
         Me.Hide()
-        frmClientDetailInput.Show()
     End Sub
 
     Private Sub btnProcessOrder_Click(sender As Object, e As EventArgs) Handles btnProcessOrder.Click
