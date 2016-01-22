@@ -6,6 +6,7 @@ Public Class Client
     Public name As String
     Public hasEyeExam As Boolean
     Public glasses As New Glasses
+    Public contacts As New Contacts
 
     Private Function validate() As Boolean Implements ReceiptItem.validate
         Throw New NotImplementedException()
