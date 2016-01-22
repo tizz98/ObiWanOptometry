@@ -1,6 +1,4 @@
-﻿Imports ObiWanOptometry
-
-Public Class Contacts
+﻿Public Class Contacts
     Inherits ReceiptFormatter
     Implements ReceiptItem
 

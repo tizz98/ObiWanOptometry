@@ -20,6 +20,16 @@
         c.hasColoredLens = True
         c.lensColor = Contacts.contactLensColorType.R2D2_Blue
         c.hasReplacementInsurance = True
-        Debug.WriteLine(c.getReceiptOutput())
+
+        Dim g As New Glasses
+        g.hasCompHdLens = True
+        g.hasPhotosensitiveLens = True
+        g.lensMaterial = Glasses.lensMaterialType.Glass
+
+        Dim myClient As New Client
+        myClient.contacts = c
+        myClient.glasses = g
+
+        Debug.WriteLine(g.getReceiptOutput())
     End Sub
 End Class

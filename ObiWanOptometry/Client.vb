@@ -5,11 +5,11 @@ Public Class Client
 
     Public name As String
     Public hasEyeExam As Boolean
-    Public glasses As New Glasses
-    Public contacts As New Contacts
+    Public glasses As Glasses
+    Public contacts As Contacts
 
     Private Function validate() As Boolean Implements ReceiptItem.validate
-        Throw New NotImplementedException()
+        Return Me.glasses.validate() And Me.contacts.validate()
     End Function
 
     Private Function getSubtotal() As Decimal Implements ReceiptItem.getSubtotal
