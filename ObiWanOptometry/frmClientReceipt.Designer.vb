@@ -37,6 +37,7 @@ Partial Class frmClientReceipt
         Me.txtReceiptData.ReadOnly = True
         Me.txtReceiptData.Size = New System.Drawing.Size(532, 474)
         Me.txtReceiptData.TabIndex = 0
+        Me.txtReceiptData.TabStop = False
         '
         'btnGoBackToBilling
         '
