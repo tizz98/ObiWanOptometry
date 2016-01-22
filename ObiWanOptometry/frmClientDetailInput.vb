@@ -127,7 +127,7 @@ Public Class frmClientDetailInput
         myClient.glasses.hasCompHdLens = chkCompHdLenses.Checked
 
         myClient.glasses.hasRolledLensEdges = chkRolledLensEdges.Checked
-        myClient.glasses.hasPhotosensitiveLens = chkRolledLensEdges.Checked
+        myClient.glasses.hasPhotosensitiveLens = chkPhotosensitiveLens.Checked
         myClient.glasses.hasProgressiveLens = chkProgressiveLens.Checked
     End Sub
 
