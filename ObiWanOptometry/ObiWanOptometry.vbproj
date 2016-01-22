@@ -111,6 +111,9 @@
     <EmbeddedResource Include="frmClientDetailInput.resx">
       <DependentUpon>frmClientDetailInput.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmClientReceipt.resx">
+      <DependentUpon>frmClientReceipt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
