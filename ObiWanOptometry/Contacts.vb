@@ -17,13 +17,12 @@
     Private Const GAS_PERM_STR As String = "Gas Permeable"
     Private Const GAS_PERM_COST As Decimal = 200.0
 
-    Public WEAR_LIST As New List(Of String)(New String() {DAILY_WEAR_STR, EXT_WEAR_STR, GAS_PERM_STR})
-
     Private Const COLORED_LENS_STR As String = "Colored Lens"
     Private Const DARTHMAUL_RED_STR As String = "Darth Maul Red"
     Private Const C3P0_GOLD_STR As String = "C3P0 Gold"
     Private Const R2D2_BLUE_STR As String = "R2D2 Blue"
     Private Const YODA_GREEN_STR As String = "Yoda Green"
+    Public Shared COLOR_LIST As New List(Of String)(New String() {DARTHMAUL_RED_STR, C3P0_GOLD_STR, R2D2_BLUE_STR, YODA_GREEN_STR})
     Private Const COLORED_LENS_COST As Decimal = 75.0
 
     Private Const REPLACEMENT_INSURANCE_STR As String = "Replacement Insurance"
