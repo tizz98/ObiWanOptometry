@@ -1,6 +1,4 @@
-﻿Imports ObiWanOptometry
-
-Public Class Client
+﻿Public Class Client
     Inherits ReceiptFormatter
     Implements ReceiptItem
 
