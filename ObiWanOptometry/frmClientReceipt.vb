@@ -5,6 +5,16 @@ Public Class frmClientReceipt
     Private TITLE As String = String.Format(frmClientDetailInput.TITLE_FORMAT_STR,
                                             frmClientDetailInput.BASE_TITLE,
                                             SUB_TITLE_STR)
+    Private clientDetailInputForm As frmClientDetailInput
+
+    Public Sub New(ByRef detailInputForm As frmClientDetailInput)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        clientDetailInputForm = detailInputForm
+    End Sub
 
     Public Sub setTitle()
         Me.Text = TITLE
@@ -26,12 +36,13 @@ Public Class frmClientReceipt
 
     Private Sub btnGoBackToBilling_Click(sender As Object, e As EventArgs) Handles btnGoBackToBilling.Click
         Me.Hide()
+        clientDetailInputForm.Show()
     End Sub
 
     Private Sub btnProcessOrder_Click(sender As Object, e As EventArgs) Handles btnProcessOrder.Click
         MessageBox.Show("The order has been processed. Thank you!")
         Me.Hide()
-        frmClientDetailInput.resetData()
-        frmClientDetailInput.Show()
+        clientDetailInputForm.resetData()
+        clientDetailInputForm.Show()
     End Sub
 End Class

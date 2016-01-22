@@ -207,13 +207,13 @@ Partial Class frmClientDetailInput
         Me.rdoGlassLens.Name = "rdoGlassLens"
         Me.rdoGlassLens.Size = New System.Drawing.Size(111, 17)
         Me.rdoGlassLens.TabIndex = 1
-        Me.rdoGlassLens.TabStop = True
         Me.rdoGlassLens.Text = "Glass Lens/Frame"
         Me.rdoGlassLens.UseVisualStyleBackColor = True
         '
         'rdoPlasticLens
         '
         Me.rdoPlasticLens.AutoSize = True
+        Me.rdoPlasticLens.Checked = True
         Me.rdoPlasticLens.Location = New System.Drawing.Point(63, 19)
         Me.rdoPlasticLens.Name = "rdoPlasticLens"
         Me.rdoPlasticLens.Size = New System.Drawing.Size(116, 17)
@@ -294,7 +294,6 @@ Partial Class frmClientDetailInput
         Me.rdoGasPerm.Name = "rdoGasPerm"
         Me.rdoGasPerm.Size = New System.Drawing.Size(97, 17)
         Me.rdoGasPerm.TabIndex = 2
-        Me.rdoGasPerm.TabStop = True
         Me.rdoGasPerm.Text = "Gas Permeable"
         Me.rdoGasPerm.UseVisualStyleBackColor = True
         '
@@ -305,13 +304,13 @@ Partial Class frmClientDetailInput
         Me.rdoExtendedWear.Name = "rdoExtendedWear"
         Me.rdoExtendedWear.Size = New System.Drawing.Size(99, 17)
         Me.rdoExtendedWear.TabIndex = 1
-        Me.rdoExtendedWear.TabStop = True
         Me.rdoExtendedWear.Text = "Extended Wear"
         Me.rdoExtendedWear.UseVisualStyleBackColor = True
         '
         'rdoDailyWear
         '
         Me.rdoDailyWear.AutoSize = True
+        Me.rdoDailyWear.Checked = True
         Me.rdoDailyWear.Location = New System.Drawing.Point(19, 16)
         Me.rdoDailyWear.Name = "rdoDailyWear"
         Me.rdoDailyWear.Size = New System.Drawing.Size(77, 17)

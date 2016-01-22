@@ -2,7 +2,7 @@
 
 Public Class frmClientDetailInput
     Public myClient As New Client
-    Public WithEvents receiptForm As New frmClientReceipt
+    Public receiptForm As frmClientReceipt = New frmClientReceipt(Me)
     Public Const BASE_TITLE As String = "Obi-Wan Optometry"
     Public Const TITLE_FORMAT_STR As String = "{0} -- {1}"
     Private Const SUB_TITLE_STR As String = "Eye Care for Generations of Jedi"
@@ -48,14 +48,9 @@ Public Class frmClientDetailInput
         If myClient.validate() Then
             Me.Hide()
 
+            receiptForm.setTitle()
             receiptForm.txtReceiptData.Text = myClient.getReceiptOutput()
             receiptForm.Show()
-        End If
-    End Sub
-
-    Private Sub receiptForm_FormClosed(ByVal sender As Object, e As EventArgs) Handles receiptForm.VisibleChanged
-        If Not receiptForm.Visible Then
-            Me.Show()
         End If
     End Sub
 
