@@ -23,6 +23,10 @@
         Return String.Format(GENERIC_SUBITEM_FORMAT_STR, getSubItemTabSpaces() & descriptionText, cost)
     End Function
 
+    Protected Function getMainItemWithCostLineFormatted(descriptionText As String, cost As Decimal) As String
+        Return String.Format(GENERIC_SUBITEM_FORMAT_STR, getMainItemTabSpaces() & descriptionText, cost)
+    End Function
+
     Protected Function getSubtotalLine(subtotal As Decimal) As String
         Return getSubItemLineFormatted(String.Format("{0} {1}", verboseName, "Subtotal"), subtotal)
     End Function

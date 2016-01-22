@@ -47,7 +47,7 @@
         Return lensMaterialType.IsDefined(GetType(lensMaterialType), Me.lensMaterial)
     End Function
 
-    Private Function getSubtotal() As Decimal Implements ReceiptItem.getSubtotal
+    Public Function getSubtotal() As Decimal Implements ReceiptItem.getSubtotal
         Dim subtotal As Decimal = getLensCost()
 
         If hasAntiScratch Then

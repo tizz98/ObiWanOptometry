@@ -29,7 +29,11 @@
         Dim myClient As New Client
         myClient.contacts = c
         myClient.glasses = g
+        myClient.hasContacts = True
+        myClient.hasGlasses = True
+        myClient.name = "Darth Vader"
+        myClient.hasEyeExam = True
 
-        Debug.WriteLine(g.getReceiptOutput())
+        Debug.WriteLine(myClient.getReceiptOutput())
     End Sub
 End Class
