@@ -187,7 +187,7 @@ Public Class Contacts
             subtotal += CLEANING_SUPPLIES_COST
         End If
 
-        If contactLensColorType.IsDefined(GetType(contactLensColorType), Me.lensColor) Then
+        If Me.hasColoredLens Then
             subtotal += COLORED_LENS_COST
         End If
 
